@@ -87,9 +87,9 @@ WSGI_APPLICATION = 'day08_movieshows.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'movieshows',
+        'NAME': 'djangotraining',
         'USER': 'postgres',
-        'PASSWORD': 'Welcome@123',
+        'PASSWORD': 'Kuchbhi6868@',
         'HOST': '127.0.0.1',
         'PORT': '5432'
     }

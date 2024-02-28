@@ -6,14 +6,15 @@ from django.urls import reverse
 
 from django.utils.text import slugify
 
+
 # Create your models here.
-
-
+class Actor(models.Model):
+    fname = models.CharField(max_length=50)
+    lname=models.CharField(max_length=50)
 class Movie(models.Model):
     title = models.CharField(max_length=100)
-    rating = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)])
-    mainactor = models.CharField(max_length=50, null=True)
+    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    mainactor = models.ForeignKey(Actor,on_delete=models.CASCADE,null=True)
     is_boxofficehit = models.BooleanField(default=False)
 
     # Adding a slug field in the model
@@ -22,7 +23,7 @@ class Movie(models.Model):
     def __str__(self):
         # return f"(Title: { self.title } Rating: { self.rating })"
         # return f"{ self.title } - { self.rating }"
-        stars = '*' * self.rating
+        stars = "*" * self.rating
         return f"{ self.title } { stars }"
 
     # def get_absolute_url(self):
